@@ -29,7 +29,7 @@ namespace BaseProject
 		private static void AddEntity(Entity entity)
 		{
 			entities.Add(entity);
-			if (entity is Bullet && Input.WasKeyPressed(Keys.A))
+			if (entity is Bullet)
 				bullets.Add(entity as Bullet);
 			else if (entity is Enemy)
 				enemies.Add(entity as Enemy);

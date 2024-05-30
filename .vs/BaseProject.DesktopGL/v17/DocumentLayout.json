@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Hyeokju\\Desktop\\Project\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{74BABA3E-D424-4620-9661-C1F767759A52}|BaseProject.DesktopGL\\BaseProject.DesktopGL.csproj|c:\\users\\hyeokju\\desktop\\project\\baseproject.desktopgl\\baseproject.desktopgl.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{74BABA3E-D424-4620-9661-C1F767759A52}|BaseProject.DesktopGL\\BaseProject.DesktopGL.csproj|solutionrelative:baseproject.desktopgl\\baseproject.desktopgl.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{64C2A1E6-09A1-4F46-8765-8B780C70122D}|BaseProject.Core\\BaseProject.Core.csproj|c:\\users\\hyeokju\\desktop\\project\\baseproject.core\\game\\entitymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64C2A1E6-09A1-4F46-8765-8B780C70122D}|BaseProject.Core\\BaseProject.Core.csproj|solutionrelative:baseproject.core\\game\\entitymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -75,10 +79,6 @@
       "RelativeMoniker": "D:0:0:{64C2A1E6-09A1-4F46-8765-8B780C70122D}|BaseProject.Core\\BaseProject.Core.csproj|solutionrelative:baseproject.core\\game\\art.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{74BABA3E-D424-4620-9661-C1F767759A52}|BaseProject.DesktopGL\\BaseProject.DesktopGL.csproj|c:\\users\\hyeokju\\desktop\\project\\baseproject.desktopgl\\baseproject.desktopgl.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{74BABA3E-D424-4620-9661-C1F767759A52}|BaseProject.DesktopGL\\BaseProject.DesktopGL.csproj|solutionrelative:baseproject.desktopgl\\baseproject.desktopgl.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{74BABA3E-D424-4620-9661-C1F767759A52}|BaseProject.DesktopGL\\BaseProject.DesktopGL.csproj|c:\\users\\hyeokju\\desktop\\project\\baseproject.desktopgl\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{74BABA3E-D424-4620-9661-C1F767759A52}|BaseProject.DesktopGL\\BaseProject.DesktopGL.csproj|solutionrelative:baseproject.desktopgl\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -94,7 +94,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 18,
           "Children": [
             {
               "$type": "Bookmark",
@@ -102,7 +102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Sound.cs",
               "DocumentMoniker": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\Game\\Sound.cs",
               "RelativeDocumentMoniker": "BaseProject.Core\\Game\\Sound.cs",
@@ -115,7 +115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "PlayerStatus.cs",
               "DocumentMoniker": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\Game\\PlayerStatus.cs",
               "RelativeDocumentMoniker": "BaseProject.Core\\Game\\PlayerStatus.cs",
@@ -128,7 +128,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "ParticleState.cs",
               "DocumentMoniker": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\Game\\ParticleState.cs",
               "RelativeDocumentMoniker": "BaseProject.Core\\Game\\ParticleState.cs",
@@ -141,7 +141,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "ParticleManager.cs",
               "DocumentMoniker": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\Game\\ParticleManager.cs",
               "RelativeDocumentMoniker": "BaseProject.Core\\Game\\ParticleManager.cs",
@@ -154,7 +154,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "MathUtil.cs",
               "DocumentMoniker": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\Game\\MathUtil.cs",
               "RelativeDocumentMoniker": "BaseProject.Core\\Game\\MathUtil.cs",
@@ -167,7 +167,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "Input.cs",
               "DocumentMoniker": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\Game\\Input.cs",
               "RelativeDocumentMoniker": "BaseProject.Core\\Game\\Input.cs",
@@ -180,7 +180,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "GameRoot.cs",
               "DocumentMoniker": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\Game\\GameRoot.cs",
               "RelativeDocumentMoniker": "BaseProject.Core\\Game\\GameRoot.cs",
@@ -193,7 +193,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 11,
               "Title": "Extensions.cs",
               "DocumentMoniker": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\Game\\Extensions.cs",
               "RelativeDocumentMoniker": "BaseProject.Core\\Game\\Extensions.cs",
@@ -206,20 +206,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "EntityManager.cs",
               "DocumentMoniker": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\Game\\EntityManager.cs",
               "RelativeDocumentMoniker": "BaseProject.Core\\Game\\EntityManager.cs",
               "ToolTip": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\Game\\EntityManager.cs",
               "RelativeToolTip": "BaseProject.Core\\Game\\EntityManager.cs",
-              "ViewState": "AQIAABUAAAAAAAAAAADwvx4AAAAYAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAIA8wBcAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-30T05:05:20.509Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "Entity.cs",
               "DocumentMoniker": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\Game\\Entity.cs",
               "RelativeDocumentMoniker": "BaseProject.Core\\Game\\Entity.cs",
@@ -232,7 +232,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "EnemySpawner.cs",
               "DocumentMoniker": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\Game\\EnemySpawner.cs",
               "RelativeDocumentMoniker": "BaseProject.Core\\Game\\EnemySpawner.cs",
@@ -245,7 +245,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "Enemy.cs",
               "DocumentMoniker": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\Game\\Enemy.cs",
               "RelativeDocumentMoniker": "BaseProject.Core\\Game\\Enemy.cs",
@@ -258,7 +258,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ColorUtil.cs",
               "DocumentMoniker": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\Game\\ColorUtil.cs",
               "RelativeDocumentMoniker": "BaseProject.Core\\Game\\ColorUtil.cs",
@@ -271,20 +271,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Bullet.cs",
               "DocumentMoniker": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\Game\\Bullet.cs",
               "RelativeDocumentMoniker": "BaseProject.Core\\Game\\Bullet.cs",
               "ToolTip": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\Game\\Bullet.cs",
               "RelativeToolTip": "BaseProject.Core\\Game\\Bullet.cs",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAnwA4AAAANAAAA",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAnwA4AAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-30T05:03:38.043Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "BloomSettings.cs",
               "DocumentMoniker": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\Game\\BloomSettings.cs",
               "RelativeDocumentMoniker": "BaseProject.Core\\Game\\BloomSettings.cs",
@@ -297,7 +297,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "BloomComponent.cs",
               "DocumentMoniker": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\Game\\BloomComponent.cs",
               "RelativeDocumentMoniker": "BaseProject.Core\\Game\\BloomComponent.cs",
@@ -310,7 +310,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "Art.cs",
               "DocumentMoniker": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\Game\\Art.cs",
               "RelativeDocumentMoniker": "BaseProject.Core\\Game\\Art.cs",
@@ -323,7 +323,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 0,
               "Title": "BaseProject.DesktopGL",
               "DocumentMoniker": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.DesktopGL\\BaseProject.DesktopGL.csproj",
               "RelativeDocumentMoniker": "BaseProject.DesktopGL\\BaseProject.DesktopGL.csproj",
@@ -349,13 +349,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "BaseProjectGame.cs",
               "DocumentMoniker": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\BaseProjectGame.cs",
               "RelativeDocumentMoniker": "BaseProject.Core\\BaseProjectGame.cs",
               "ToolTip": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\BaseProjectGame.cs",
               "RelativeToolTip": "BaseProject.Core\\BaseProjectGame.cs",
-              "ViewState": "AQIAAFMAAAAAAAAAAAA4wF4AAAAMAAAA",
+              "ViewState": "AQIAAKwAAAAAAAAAAAAAAKwAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-30T04:55:47.058Z",
               "EditorCaption": ""
