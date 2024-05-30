@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "4clmSuhEXkgDy0/g74q0jk4x2MfqhLfnK2cSXnjA50HrVual270IFRedf+ycp4XzIUceZ4WFO9tmPhDaN1ErCA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Hyeokju\\Desktop\\Project\\BaseProject.Core\\BaseProject.Core.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Hyeokju\\.nuget\\packages\\monogame.framework.desktopgl\\3.8.1.303\\monogame.framework.desktopgl.3.8.1.303.nupkg.sha512"
+  ],
+  "logs": []
+}
