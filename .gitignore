@@ -1,0 +1,15 @@
+bin/
+obj/
+.vs/
+BaseProject.Andriod/bin/
+BaseProject.Andriod/obj/
+BaseProject.Core/bin/
+BaseProject.Core.obj/
+BaseProject.DesktopGL/bin/
+BaseProject.DesktopGL/obj/
+BaseProject.iOS/bin/
+BaseProject.iOS/obj/
+BaseProject.WindowsDX/bin/
+BaseProject.WindowsDX/obj/
+BaseProject.WindowsUWP/bin/
+BaseProject.WindowsUWP/obj/
