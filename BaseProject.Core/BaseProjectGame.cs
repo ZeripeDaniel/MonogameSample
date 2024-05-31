@@ -11,11 +11,11 @@ using Microsoft.Xna.Framework.Media;
 namespace BaseProject
 {
     /// <summary>
-    /// ÀÌ Å¬·¡½º´Â °ÔÀÓÀÇ ÁÖ¿ä Å¸ÀÔÀÔ´Ï´Ù.
+    /// ì´ í´ë˜ìŠ¤ëŠ” ê²Œì„ì˜ ì£¼ìš” íƒ€ì…ì…ë‹ˆë‹¤.
     /// </summary>
     public class BaseProjectGame : Microsoft.Xna.Framework.Game
     {
-        // À¯¿ëÇÑ Á¤Àû ¼Ó¼ºµé
+        // ìœ ìš©í•œ ì •ì  ì†ì„±ë“¤
         public static BaseProjectGame Instance { get; private set; }
         public static Viewport Viewport { get { return Instance.GraphicsDevice.Viewport; } }
         public static Vector2 ScreenSize { get { return new Vector2(Viewport.Width, Viewport.Height); } }
@@ -53,7 +53,7 @@ namespace BaseProject
         }
 
         /// <summary>
-        /// °ÔÀÓ´ç ÇÑ ¹ø È£ÃâµÇ¾î ¸ğµç ÄÜÅÙÃ÷¸¦ ·ÎµåÇÏ´Â °÷ÀÔ´Ï´Ù.
+        /// ê²Œì„ë‹¹ í•œ ë²ˆ í˜¸ì¶œë˜ì–´ ëª¨ë“  ì½˜í…ì¸ ë¥¼ ë¡œë“œí•˜ëŠ” ê³³ì…ë‹ˆë‹¤.
         /// </summary>
         protected override void LoadContent()
         {
@@ -64,10 +64,10 @@ namespace BaseProject
             EntityManager.Add(PlayerShip.Instance);
 
 #if !__IOS__
-            // PC¿¡ ¿¬°áµÈ »óÅÂ¿¡¼­ Media Player¸¦ »ç¿ëÇÒ °æ¿ì ¿¹¿Ü°¡ ¹ß»ıÇÏ´Â ¾Ë·ÁÁø ¹®Á¦
-            // ÀÚ¼¼ÇÑ ³»¿ëÀº http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/c8a243d2-d360-46b1-96bd-62b1ef268c66 ÂüÁ¶
-            // µû¶ó¼­ VS¿¡¼­ ÀÌ¸¦ Å×½ºÆ®ÇÏ´Â °ÍÀº ºÒ°¡´ÉÇÕ´Ï´Ù.
-            // ¿¹¿Ü¸¦ catchÇÏ°í ¹«½ÃÇØ¾ß ÇÕ´Ï´Ù.
+            // PCì— ì—°ê²°ëœ ìƒíƒœì—ì„œ Media Playerë¥¼ ì‚¬ìš©í•  ê²½ìš° ì˜ˆì™¸ê°€ ë°œìƒí•˜ëŠ” ì•Œë ¤ì§„ ë¬¸ì œ
+            // ìì„¸í•œ ë‚´ìš©ì€ http://social.msdn.microsoft.com/Forums/en/windowsphone7series/thread/c8a243d2-d360-46b1-96bd-62b1ef268c66 ì°¸ì¡°
+            // ë”°ë¼ì„œ VSì—ì„œ ì´ë¥¼ í…ŒìŠ¤íŠ¸í•˜ëŠ” ê²ƒì€ ë¶ˆê°€ëŠ¥í•©ë‹ˆë‹¤.
+            // ì˜ˆì™¸ë¥¼ catchí•˜ê³  ë¬´ì‹œí•´ì•¼ í•©ë‹ˆë‹¤.
             try
             {
                 MediaPlayer.IsRepeating = true;
@@ -78,16 +78,16 @@ namespace BaseProject
         }
 
         /// <summary>
-        /// °ÔÀÓ ·ÎÁ÷À» ½ÇÇàÇÏ¿© ¼¼°è¸¦ ¾÷µ¥ÀÌÆ®ÇÏ°í, Ãæµ¹À» Ã¼Å©ÇÏ°í, ÀÔ·ÂÀ» ¼öÁıÇÏ¸ç, ¿Àµğ¿À¸¦ Àç»ıÇÕ´Ï´Ù.
+        /// ê²Œì„ ë¡œì§ì„ ì‹¤í–‰í•˜ì—¬ ì„¸ê³„ë¥¼ ì—…ë°ì´íŠ¸í•˜ê³ , ì¶©ëŒì„ ì²´í¬í•˜ê³ , ì…ë ¥ì„ ìˆ˜ì§‘í•˜ë©°, ì˜¤ë””ì˜¤ë¥¼ ì¬ìƒí•©ë‹ˆë‹¤.
         /// </summary>
-        /// <param name="gameTime">½Ã°£ °ªÀÇ ½º³À¼¦À» Á¦°øÇÕ´Ï´Ù.</param>
+        /// <param name="gameTime">ì‹œê°„ ê°’ì˜ ìŠ¤ëƒ…ìƒ·ì„ ì œê³µí•©ë‹ˆë‹¤.</param>
         protected override void Update(GameTime gameTime)
         {
             GameTime = gameTime;
             Input.Update();
 
 #if !__IOS__
-            // °ÔÀÓÀ» Á¾·áÇÒ ¼ö ÀÖµµ·Ï ÇÕ´Ï´Ù.
+            // ê²Œì„ì„ ì¢…ë£Œí•  ìˆ˜ ìˆë„ë¡ í•©ë‹ˆë‹¤.
             if (Input.WasButtonPressed(Buttons.Back) || Input.WasKeyPressed(Keys.Escape))
                 this.Exit();
 #endif
@@ -108,23 +108,23 @@ namespace BaseProject
         }
 
         /// <summary>
-        /// ¹è°æ¿¡¼­ Àü°æÀ¸·Î °ÔÀÓÀ» ±×¸³´Ï´Ù.
+        /// ë°°ê²½ì—ì„œ ì „ê²½ìœ¼ë¡œ ê²Œì„ì„ ê·¸ë¦½ë‹ˆë‹¤.
         /// </summary>
-        /// <param name="gameTime">½Ã°£ °ªÀÇ ½º³À¼¦À» Á¦°øÇÕ´Ï´Ù.</param>
+        /// <param name="gameTime">ì‹œê°„ ê°’ì˜ ìŠ¤ëƒ…ìƒ·ì„ ì œê³µí•©ë‹ˆë‹¤.</param>
         protected override void Draw(GameTime gameTime)
         {
             /// <summary>
             ///spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive);
-            ///`Deferred`´Â ÀÏ¹İÀûÀ¸·Î "¿¬±âµÈ", "¹Ì·é", "³ªÁß¿¡ Ã³¸®ÇÏ´Â"ÀÌ¶ó´Â ÀÇ¹Ì¸¦ °¡Áö°í ÀÖ½À´Ï´Ù. ÇÁ·Î±×·¡¹ÖÀÌ³ª ±×·¡ÇÈ ·»´õ¸µÀÇ ¸Æ¶ô¿¡¼­, `Deferred`´Â ÀÛ¾÷ÀÌ³ª °è»êÀ» Áï½Ã ¼öÇàÇÏÁö ¾Ê°í ³ªÁß¿¡ ¼öÇàÇÏ±â À§ÇØ ¿¬±âÇÏ´Â °ÍÀ» ÀÇ¹ÌÇÕ´Ï´Ù.
-            ///¿©±â¼­ `SpriteSortMode.Deferred`´Â ½ºÇÁ¶óÀÌÆ®¸¦ ±×¸± ¶§ Áï½Ã Á¤·ÄÇÏÁö ¾Ê°í, ±×¸®±â ÀÛ¾÷ÀÌ ¿Ï·áµÉ ¶§±îÁö Á¤·ÄÀ» ¿¬±âÇÏ´Â °ÍÀ» ÀÇ¹ÌÇÕ´Ï´Ù. ÀÌ´Â ¿©·¯ ½ºÇÁ¶óÀÌÆ®¸¦ È¿À²ÀûÀ¸·Î Ã³¸®ÇÏ°í ÃÖÀûÀÇ ¼ø¼­·Î ·»´õ¸µÇÏ±â À§ÇØ »ç¿ëµË´Ï´Ù.
+            ///`Deferred`ëŠ” ì¼ë°˜ì ìœ¼ë¡œ "ì—°ê¸°ëœ", "ë¯¸ë£¬", "ë‚˜ì¤‘ì— ì²˜ë¦¬í•˜ëŠ”"ì´ë¼ëŠ” ì˜ë¯¸ë¥¼ ê°€ì§€ê³  ìˆìŠµë‹ˆë‹¤. í”„ë¡œê·¸ë˜ë°ì´ë‚˜ ê·¸ë˜í”½ ë Œë”ë§ì˜ ë§¥ë½ì—ì„œ, `Deferred`ëŠ” ì‘ì—…ì´ë‚˜ ê³„ì‚°ì„ ì¦‰ì‹œ ìˆ˜í–‰í•˜ì§€ ì•Šê³  ë‚˜ì¤‘ì— ìˆ˜í–‰í•˜ê¸° ìœ„í•´ ì—°ê¸°í•˜ëŠ” ê²ƒì„ ì˜ë¯¸í•©ë‹ˆë‹¤.
+            ///ì—¬ê¸°ì„œ `SpriteSortMode.Deferred`ëŠ” ìŠ¤í”„ë¼ì´íŠ¸ë¥¼ ê·¸ë¦´ ë•Œ ì¦‰ì‹œ ì •ë ¬í•˜ì§€ ì•Šê³ , ê·¸ë¦¬ê¸° ì‘ì—…ì´ ì™„ë£Œë  ë•Œê¹Œì§€ ì •ë ¬ì„ ì—°ê¸°í•˜ëŠ” ê²ƒì„ ì˜ë¯¸í•©ë‹ˆë‹¤. ì´ëŠ” ì—¬ëŸ¬ ìŠ¤í”„ë¼ì´íŠ¸ë¥¼ íš¨ìœ¨ì ìœ¼ë¡œ ì²˜ë¦¬í•˜ê³  ìµœì ì˜ ìˆœì„œë¡œ ë Œë”ë§í•˜ê¸° ìœ„í•´ ì‚¬ìš©ë©ë‹ˆë‹¤.
             ///
-            ///´Ù¸¥ `SpriteSortMode` ¿É¼Çµé°ú ºñ±³ÇÏ¸é:
-            ///- `Immediate`: ½ºÇÁ¶óÀÌÆ®¸¦ Ãß°¡ÇÏ´Â Áï½Ã ±×¸³´Ï´Ù.
-            ///- `Deferred`: ½ºÇÁ¶óÀÌÆ®¸¦ ¸ğ¾ÆµÎ¾ú´Ù°¡ `End`°¡ È£ÃâµÉ ¶§ ÇÑ²¨¹ø¿¡ ±×¸³´Ï´Ù.
-            ///- `Texture`: ÅØ½ºÃ³º°·Î Á¤·ÄÇÏ¿© °°Àº ÅØ½ºÃ³¸¦ »ç¿ëÇÏ´Â ½ºÇÁ¶óÀÌÆ®¸¦ ÇÔ²² ±×¸³´Ï´Ù.
-            ///- `BackToFront`¿Í `FrontToBack`: Z ¼ø¼­¿¡(x,y,z°ªÀÎµ¥ ¿ì¸®´Â ÆíÇÏ°Ô ·¹ÀÌ¾î¶ó°í»ı°¢ÇÏ¸éµÊ) µû¶ó ½ºÇÁ¶óÀÌÆ®¸¦ Á¤·ÄÇÏ¿© ±×¸³´Ï´Ù.
+            ///ë‹¤ë¥¸ `SpriteSortMode` ì˜µì…˜ë“¤ê³¼ ë¹„êµí•˜ë©´:
+            ///- `Immediate`: ìŠ¤í”„ë¼ì´íŠ¸ë¥¼ ì¶”ê°€í•˜ëŠ” ì¦‰ì‹œ ê·¸ë¦½ë‹ˆë‹¤.
+            ///- `Deferred`: ìŠ¤í”„ë¼ì´íŠ¸ë¥¼ ëª¨ì•„ë‘ì—ˆë‹¤ê°€ `End`ê°€ í˜¸ì¶œë  ë•Œ í•œêº¼ë²ˆì— ê·¸ë¦½ë‹ˆë‹¤.
+            ///- `Texture`: í…ìŠ¤ì²˜ë³„ë¡œ ì •ë ¬í•˜ì—¬ ê°™ì€ í…ìŠ¤ì²˜ë¥¼ ì‚¬ìš©í•˜ëŠ” ìŠ¤í”„ë¼ì´íŠ¸ë¥¼ í•¨ê»˜ ê·¸ë¦½ë‹ˆë‹¤.
+            ///- `BackToFront`ì™€ `FrontToBack`: Z ìˆœì„œì—(x,y,zê°’ì¸ë° ìš°ë¦¬ëŠ” í¸í•˜ê²Œ ë ˆì´ì–´ë¼ê³ ìƒê°í•˜ë©´ë¨) ë”°ë¼ ìŠ¤í”„ë¼ì´íŠ¸ë¥¼ ì •ë ¬í•˜ì—¬ ê·¸ë¦½ë‹ˆë‹¤.
             ///
-            ///Áï, `SpriteSortMode.Deferred`´Â ½ºÇÁ¶óÀÌÆ®¸¦ ±×¸± ¶§ ¼º´ÉÀ» ÃÖÀûÈ­ÇÏ±â À§ÇØ ³ªÁß¿¡ Á¤·ÄÇÏ°í ±×¸®´Â ¹æ½ÄÀÔ´Ï´Ù.
+            ///ì¦‰, `SpriteSortMode.Deferred`ëŠ” ìŠ¤í”„ë¼ì´íŠ¸ë¥¼ ê·¸ë¦´ ë•Œ ì„±ëŠ¥ì„ ìµœì í™”í•˜ê¸° ìœ„í•´ ë‚˜ì¤‘ì— ì •ë ¬í•˜ê³  ê·¸ë¦¬ëŠ” ë°©ì‹ì…ë‹ˆë‹¤.
             /// </summary>
 
             GraphicsDevice.Clear(Color.DarkOliveGreen);
@@ -134,20 +134,20 @@ namespace BaseProject
             spriteBatch.End();
            
             base.Draw(gameTime);
-            // ºí·ë ¾øÀÌ »ç¿ëÀÚ ÀÎÅÍÆäÀÌ½º ±×¸®±â
+            // ë¸”ë£¸ ì—†ì´ ì‚¬ìš©ì ì¸í„°í˜ì´ìŠ¤ ê·¸ë¦¬ê¸°
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.Additive);
 
-            //¾Æ·¡´Â ´Ù¸¥ Å¬·¡½º¸¦ »ç¿ëÇÏ´Â ¿¹Á¦ÀÌ´Ù. ¸ñ¼ûÀÌ³ª ½ºÄÚ¾î ¹è¼ö¸¦ Ç¥ÇöÇÑ´Ù.
-            //DrawTitleSafeAlignedString("Lives: " + PlayerStatus.Lives, 5);
-            //DrawTitleSafeRightAlignedString("Score: " + PlayerStatus.Score, 5);
-            //DrawTitleSafeRightAlignedString("Multiplier: " + PlayerStatus.Multiplier, 35);
+            //ì•„ë˜ëŠ” ë‹¤ë¥¸ í´ë˜ìŠ¤ë¥¼ ì‚¬ìš©í•˜ëŠ” ì˜ˆì œì´ë‹¤. ëª©ìˆ¨ì´ë‚˜ ìŠ¤ì½”ì–´ ë°°ìˆ˜ë¥¼ í‘œí˜„í•œë‹¤.
+            DrawTitleSafeAlignedString("Lives: " + PlayerStatus.Lives, 5);
+            DrawTitleSafeRightAlignedString("Score: " + PlayerStatus.Score, 5);
+            DrawTitleSafeRightAlignedString("Multiplier: " + PlayerStatus.Multiplier, 35);
 
-            // Ä¿½ºÅÒ ¸¶¿ì½º Ä¿¼­ ±×¸®±â
+            // ì»¤ìŠ¤í…€ ë§ˆìš°ìŠ¤ ì»¤ì„œ ê·¸ë¦¬ê¸°
             spriteBatch.Draw(Art.Pointer, Input.MousePosition, Color.White);
 
             string text = "Hello World!\n";
             Vector2 textSize = Art.Font.MeasureString(text);
-            spriteBatch.DrawString(Art.Font, text, ScreenSize / 2 - textSize / 2, Color.White);
+           // spriteBatch.DrawString(Art.Font, text, ScreenSize / 2 - textSize / 2, Color.White);
             
             spriteBatch.End();
         }

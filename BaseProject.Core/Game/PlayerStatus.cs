@@ -1,11 +1,11 @@
-﻿using System.IO;
+using System.IO;
 
 namespace BaseProject
 {
     static class PlayerStatus
     {
         // 배수(multiplier)가 만료되는 데 걸리는 시간(초 단위)
-        private const float multiplierExpiryTime = 0.8f;
+        private const float multiplierExpiryTime = 5.8f;
         private const int maxMultiplier = 20;
 
         public static int Lives { get; private set; }

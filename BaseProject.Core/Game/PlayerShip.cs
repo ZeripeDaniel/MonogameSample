@@ -38,7 +38,7 @@ namespace BaseProject
         }
 
         // 총알 발사 간의 딜레이를 설정합니다.
-        const int cooldownFrames = 60; // 총알 발사 쿨다운 프레임 수
+        const int cooldownFrames = 6; // 총알 발사 쿨다운 프레임 수
         int cooldowmRemaining = 0; // 남은 쿨다운 프레임 수
 
         // 플레이어가 죽었을 때 부활까지 남은 프레임 수를 저장합니다.
@@ -75,12 +75,12 @@ namespace BaseProject
             }
 
             // 스페이스바 또는 마우스 좌 클릭 시 총알을 발사합니다.
-            if (Keyboard.GetState().IsKeyDown(Keys.Space) || Mouse.GetState().LeftButton == ButtonState.Pressed)
+            var aim = Input.GetAimDirection(); // 조준 방향을 가져옵니다.
+            if (aim.LengthSquared() > 0 && cooldowmRemaining <= 0) // 유효한 조준 방향이고, 쿨다운이 끝났다면
             {
-                var aim = Input.GetAimDirection(); // 조준 방향을 가져옵니다.
-                if (aim.LengthSquared() > 0 && cooldowmRemaining <= 0) // 유효한 조준 방향이고, 쿨다운이 끝났다면
+                cooldowmRemaining = cooldownFrames; // 쿨다운을 초기화합니다.
+                if (Keyboard.GetState().IsKeyDown(Keys.Space) || Mouse.GetState().LeftButton == ButtonState.Pressed)
                 {
-                    cooldowmRemaining = cooldownFrames; // 쿨다운을 초기화합니다.
                     float aimAngle = aim.ToAngle(); // 조준 각도를 계산합니다.
                     Quaternion aimQuat = Quaternion.CreateFromYawPitchRoll(0, 0, aimAngle); // 조준 각도에 따른 회전 쿼터니언을 생성합니다.
 
