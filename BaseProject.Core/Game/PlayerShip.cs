@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using System;
@@ -38,7 +38,7 @@ namespace BaseProject
         }
 
         // 총알 발사 간의 딜레이를 설정합니다.
-        const int cooldownFrames = 6; // 총알 발사 쿨다운 프레임 수
+        const int cooldownFrames = 60; // 총알 발사 쿨다운 프레임 수
         int cooldowmRemaining = 0; // 남은 쿨다운 프레임 수
 
         // 플레이어가 죽었을 때 부활까지 남은 프레임 수를 저장합니다.
@@ -49,11 +49,13 @@ namespace BaseProject
         static Random rand = new Random(); // Random 인스턴스 생성
 
         // PlayerShip 생성자입니다. Singleton 패턴을 위해 private으로 설정합니다.
+        //PlayerShip이 생성 되면 아래의 priavate가 실행된다! 그렇담 플레이어 이미지와 초기위치를 새로이 주어야한다!
         private PlayerShip()
         {
             image = Art.Player; // 플레이어 이미지를 설정합니다.
             Position = BaseProjectGame.ScreenSize / 2; // 플레이어의 초기 위치를 화면 중앙으로 설정합니다.
-            Radius = 10; // 충돌 판정을 위한 반지름을 설정합니다.
+            Radius = 10; // 충돌 판정을 위한 반지름을 설정합니다. 반지름이므로 상,하,좌,우 중앙을 기점으로 10 10 10 10 이 생긴다
+            //그렇다는건 좌,우 의 거리 차이는 20이겟지?
         }
 
         // 매 프레임마다 호출되는 업데이트 메소드입니다.
@@ -95,20 +97,20 @@ namespace BaseProject
 
                     Sound.Shot.Play(0.2f, rand.NextFloat(-0.2f, 0.2f), 0); // 총알 발사 소리를 재생합니다.
                 }
-
-                if (cooldowmRemaining > 0) // 쿨다운이 남아있다면
-                    cooldowmRemaining--; // 쿨다운을 감소시킵니다.
-
-                const float speed = 8; // 플레이어의 이동 속도를 설정합니다.
-                Velocity += speed * Input.GetMovementDirection(); // 플레이어의 이동 벡터를 업데이트합니다.
-                Position += Velocity; // 플레이어의 위치를 업데이트합니다.
-                Position = Vector2.Clamp(Position, Size / 2, BaseProjectGame.ScreenSize - Size / 2); // 플레이어의 위치를 화면 내로 제한합니다.
-
-                if (Velocity.LengthSquared() > 0) // 이동 속도가 0보다 크다면
-                    Orientation = Velocity.ToAngle(); // 플레이어의 방향을 업데이트합니다.
-
-                Velocity = Vector2.Zero; // 이동 속도를 0으로 초기화합니다.
             }
+
+            if (cooldowmRemaining > 0) // 쿨다운이 남아있다면
+                cooldowmRemaining--; // 쿨다운을 감소시킵니다.
+
+            const float speed = 8; // 플레이어의 이동 속도를 설정합니다.
+            Velocity += speed * Input.GetMovementDirection(); // 플레이어의 이동 벡터를 업데이트합니다.
+            Position += Velocity; // 플레이어의 위치를 업데이트합니다.
+            Position = Vector2.Clamp(Position, Size / 2, BaseProjectGame.ScreenSize - Size / 2); // 플레이어의 위치를 화면 내로 제한합니다.
+
+            if (Velocity.LengthSquared() > 0) // 이동 속도가 0보다 크다면
+                Orientation = Velocity.ToAngle(); // 플레이어의 방향을 업데이트합니다.
+
+            Velocity = Vector2.Zero; // 이동 속도를 0으로 초기화합니다.
         }
 
         // 플레이어를 그립니다.

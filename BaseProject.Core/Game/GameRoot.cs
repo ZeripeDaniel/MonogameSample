@@ -1,4 +1,5 @@
-﻿//using BloomPostprocess;
+//원래는 여기서 모든 화면을 관장하려 했으나! 그냥 BaseProjectGame에서 모두 관장한다!
+//using BloomPostprocess;
 //using Microsoft.Xna.Framework;
 //using Microsoft.Xna.Framework.Graphics;
 //using Microsoft.Xna.Framework.Input;
