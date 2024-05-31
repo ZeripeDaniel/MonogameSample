@@ -122,7 +122,7 @@ namespace BaseProject
             ///- `Immediate`: 스프라이트를 추가하는 즉시 그립니다.
             ///- `Deferred`: 스프라이트를 모아두었다가 `End`가 호출될 때 한꺼번에 그립니다.
             ///- `Texture`: 텍스처별로 정렬하여 같은 텍스처를 사용하는 스프라이트를 함께 그립니다.
-            ///- `BackToFront`와 `FrontToBack`: Z 순서에 따라 스프라이트를 정렬하여 그립니다.
+            ///- `BackToFront`와 `FrontToBack`: Z 순서에(x,y,z값인데 우리는 편하게 레이어라고생각하면됨) 따라 스프라이트를 정렬하여 그립니다.
             ///
             ///즉, `SpriteSortMode.Deferred`는 스프라이트를 그릴 때 성능을 최적화하기 위해 나중에 정렬하고 그리는 방식입니다.
             /// </summary>

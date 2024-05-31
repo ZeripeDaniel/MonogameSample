@@ -1,154 +1,128 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using System;
 
 namespace BaseProject
 {
     class PlayerShip : Entity
     {
+
+        //Singleton 패턴은 객체 지향 프로그래밍에서 사용되는 디자인 패턴 중 하나로,
+        //클래스의 인스턴스를 하나만 생성하여 전역적으로 접근할 수 있도록 하는 패턴입니다.
+        //Singleton 패턴은 다음과 같은 상황에서 유용합니다.
+
+        //인스턴스가 하나만 필요할 때: 예를 들어, 시스템 설정, 로그 관리, 데이터베이스 연결 등은
+        //애플리케이션 내에서 하나의 인스턴스만 존재하는 것이 효율적입니다.
+
+        //글로벌 액세스 포인트를 제공할 때: Singleton 인스턴스를 전역적으로 접근 가능하게 하여,
+        //어디서든 동일한 인스턴스를 사용할 수 있도록 합니다.
+
+        //Singleton 패턴의 주요 구성 요소
+        //Private 생성자: 클래스 외부에서 인스턴스를 생성하지 못하도록 생성자를 private으로 정의합니다.
+        //Static 인스턴스 변수: 클래스의 유일한 인스턴스를 저장하는 static 변수를 선언합니다.
+        //Public 정적 메소드: 인스턴스를 반환하는 정적 메소드를 제공하여,
+        //인스턴스가 존재하지 않으면 생성하고, 이미 존재하면 기존 인스턴스를 반환합니다.
+
+        // Singleton 패턴을 사용하여 PlayerShip의 인스턴스를 하나만 유지합니다.
         private static PlayerShip instance;
         public static PlayerShip Instance
         {
             get
             {
                 if (instance == null)
-                    instance = new PlayerShip();
+                    instance = new PlayerShip(); // 새로운 PlayerShip 인스턴스를 생성합니다.
 
-                return instance;
+                return instance; // 생성된 인스턴스를 반환합니다.
             }
         }
 
-        const int cooldownFrames = 6;
-        int cooldowmRemaining = 0;
+        // 총알 발사 간의 딜레이를 설정합니다.
+        const int cooldownFrames = 6; // 총알 발사 쿨다운 프레임 수
+        int cooldowmRemaining = 0; // 남은 쿨다운 프레임 수
 
-        int framesUntilRespawn = 0;
-        public bool IsDead { get { return framesUntilRespawn > 0; } }
+        // 플레이어가 죽었을 때 부활까지 남은 프레임 수를 저장합니다.
+        int framesUntilRespawn = 0; // 부활까지 남은 프레임 수
+        public bool IsDead { get { return framesUntilRespawn > 0; } } // 플레이어가 죽었는지 여부를 반환합니다.
 
-        static Random rand = new Random();
+        // 랜덤한 값을 생성하기 위한 Random 인스턴스입니다.
+        static Random rand = new Random(); // Random 인스턴스 생성
 
+        // PlayerShip 생성자입니다. Singleton 패턴을 위해 private으로 설정합니다.
         private PlayerShip()
         {
-            image = Art.Player;
-            Position = BaseProjectGame.ScreenSize / 2;
-            Radius = 10;
+            image = Art.Player; // 플레이어 이미지를 설정합니다.
+            Position = BaseProjectGame.ScreenSize / 2; // 플레이어의 초기 위치를 화면 중앙으로 설정합니다.
+            Radius = 10; // 충돌 판정을 위한 반지름을 설정합니다.
         }
 
+        // 매 프레임마다 호출되는 업데이트 메소드입니다.
         public override void Update()
         {
-            if (IsDead)
+            if (IsDead) // 플레이어가 죽었을 때
             {
-                if (--framesUntilRespawn == 0)
+                if (--framesUntilRespawn == 0) // 부활까지 남은 프레임을 감소시키고, 0이 되면
                 {
-                    if (PlayerStatus.Lives == 0)
+                    if (PlayerStatus.Lives == 0) // 플레이어의 생명이 모두 소진되었는지 확인합니다.
                     {
-                        PlayerStatus.Reset();
-                        Position = BaseProjectGame.ScreenSize / 2;
+                        PlayerStatus.Reset(); // 플레이어 상태를 리셋합니다.
+                        Position = BaseProjectGame.ScreenSize / 2; // 플레이어의 위치를 화면 중앙으로 설정합니다.
                     }
                 }
-
-                return;
+                return; // 더 이상 업데이트를 진행하지 않습니다.
             }
 
-            var aim = Input.GetAimDirection();
-            if (aim.LengthSquared() > 0 && cooldowmRemaining <= 0)
+            // 스페이스바 또는 마우스 좌 클릭 시 총알을 발사합니다.
+            if (Keyboard.GetState().IsKeyDown(Keys.Space) || Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
-                cooldowmRemaining = cooldownFrames;
-                float aimAngle = aim.ToAngle();
-                Quaternion aimQuat = Quaternion.CreateFromYawPitchRoll(0, 0, aimAngle);
+                var aim = Input.GetAimDirection(); // 조준 방향을 가져옵니다.
+                if (aim.LengthSquared() > 0 && cooldowmRemaining <= 0) // 유효한 조준 방향이고, 쿨다운이 끝났다면
+                {
+                    cooldowmRemaining = cooldownFrames; // 쿨다운을 초기화합니다.
+                    float aimAngle = aim.ToAngle(); // 조준 각도를 계산합니다.
+                    Quaternion aimQuat = Quaternion.CreateFromYawPitchRoll(0, 0, aimAngle); // 조준 각도에 따른 회전 쿼터니언을 생성합니다.
 
-                float randomSpread = rand.NextFloat(-0.04f, 0.04f) + rand.NextFloat(-0.04f, 0.04f);
-                Vector2 vel = MathUtil.FromPolar(aimAngle + randomSpread, 11f);
+                    // 총알의 발사 방향에 약간의 랜덤 스프레드를 추가합니다.
+                    float randomSpread = rand.NextFloat(-0.04f, 0.04f) + rand.NextFloat(-0.04f, 0.04f);
+                    Vector2 vel = MathUtil.FromPolar(aimAngle + randomSpread, 11f); // 총알의 속도를 계산합니다.
 
-                Vector2 offset = Vector2.Transform(new Vector2(35, -8), aimQuat);
-                EntityManager.Add(new Bullet(Position + offset, vel));
+                    // 총알 발사 위치를 설정하고 발사합니다.
+                    Vector2 offset = Vector2.Transform(new Vector2(35, -8), aimQuat); // 왼쪽 총알 위치
+                    EntityManager.Add(new Bullet(Position + offset, vel)); // 총알을 EntityManager에 추가합니다.
 
-                offset = Vector2.Transform(new Vector2(35, 8), aimQuat);
-                EntityManager.Add(new Bullet(Position + offset, vel));
+                    offset = Vector2.Transform(new Vector2(35, 8), aimQuat); // 오른쪽 총알 위치
+                    EntityManager.Add(new Bullet(Position + offset, vel)); // 총알을 EntityManager에 추가합니다.
 
-                Sound.Shot.Play(0.2f, rand.NextFloat(-0.2f, 0.2f), 0);
-            }
+                    Sound.Shot.Play(0.2f, rand.NextFloat(-0.2f, 0.2f), 0); // 총알 발사 소리를 재생합니다.
+                }
 
-            if (cooldowmRemaining > 0)
-                cooldowmRemaining--;
+                if (cooldowmRemaining > 0) // 쿨다운이 남아있다면
+                    cooldowmRemaining--; // 쿨다운을 감소시킵니다.
 
-            const float speed = 8;
-            Velocity += speed * Input.GetMovementDirection();
-            Position += Velocity;
-            Position = Vector2.Clamp(Position, Size / 2, BaseProjectGame.ScreenSize - Size / 2);
+                const float speed = 8; // 플레이어의 이동 속도를 설정합니다.
+                Velocity += speed * Input.GetMovementDirection(); // 플레이어의 이동 벡터를 업데이트합니다.
+                Position += Velocity; // 플레이어의 위치를 업데이트합니다.
+                Position = Vector2.Clamp(Position, Size / 2, BaseProjectGame.ScreenSize - Size / 2); // 플레이어의 위치를 화면 내로 제한합니다.
 
-            if (Velocity.LengthSquared() > 0)
-                Orientation = Velocity.ToAngle();
+                if (Velocity.LengthSquared() > 0) // 이동 속도가 0보다 크다면
+                    Orientation = Velocity.ToAngle(); // 플레이어의 방향을 업데이트합니다.
 
-            MakeExhaustFire();
-            Velocity = Vector2.Zero;
-        }
-
-        private void MakeExhaustFire()
-        {
-            if (Velocity.LengthSquared() > 0.1f)
-            {
-                // 변수 설정
-                Orientation = Velocity.ToAngle();
-                Quaternion rot = Quaternion.CreateFromYawPitchRoll(0f, 0f, Orientation);
-
-                double t = BaseProjectGame.GameTime.TotalGameTime.TotalSeconds;
-                // 입자의 주요 속도는 3 픽셀/프레임으로, 우주선이 이동하는 반대 방향으로 설정됩니다.
-                Vector2 baseVel = Velocity.ScaleTo(-3);
-                // 두 측면 스트림의 가로 방향 속도를 계산합니다. 방향은 우주선의 속도에 수직이며, 크기는 사인 곡선에 따라 변합니다.
-                Vector2 perpVel = new Vector2(baseVel.Y, -baseVel.X) * (0.6f * (float)Math.Sin(t * 10));
-                Color sideColor = new Color(200, 38, 9);    // 진한 빨간색
-                Color midColor = new Color(255, 187, 30);    // 주황색-노란색
-                Vector2 pos = Position + Vector2.Transform(new Vector2(-25, 0), rot);    // 우주선의 배기 파이프 위치.
-                const float alpha = 0.7f;
-
-                // 중앙 입자 스트림
-                Vector2 velMid = baseVel + rand.NextVector2(0, 1);
-                //BaseProjectGame.ParticleManager.CreateParticle(Art.LineParticle, pos, Color.White * alpha, 60f, new Vector2(0.5f, 1),
-                //    new ParticleState(velMid, ParticleType.Enemy));
-                //BaseProjectGame.ParticleManager.CreateParticle(Art.Glow, pos, midColor * alpha, 60f, new Vector2(0.5f, 1),
-                //    new ParticleState(velMid, ParticleType.Enemy));
-
-                // 측면 입자 스트림
-                Vector2 vel1 = baseVel + perpVel + rand.NextVector2(0, 0.3f);
-                Vector2 vel2 = baseVel - perpVel + rand.NextVector2(0, 0.3f);
-                //BaseProjectGame.ParticleManager.CreateParticle(Art.LineParticle, pos, Color.White * alpha, 60f, new Vector2(0.5f, 1),
-                //    new ParticleState(vel1, ParticleType.Enemy));
-                //BaseProjectGame.ParticleManager.CreateParticle(Art.LineParticle, pos, Color.White * alpha, 60f, new Vector2(0.5f, 1),
-                //    new ParticleState(vel2, ParticleType.Enemy));
-
-                //BaseProjectGame.ParticleManager.CreateParticle(Art.Glow, pos, sideColor * alpha, 60f, new Vector2(0.5f, 1),
-                //    new ParticleState(vel1, ParticleType.Enemy));
-                //BaseProjectGame.ParticleManager.CreateParticle(Art.Glow, pos, sideColor * alpha, 60f, new Vector2(0.5f, 1),
-                //    new ParticleState(vel2, ParticleType.Enemy));
+                Velocity = Vector2.Zero; // 이동 속도를 0으로 초기화합니다.
             }
         }
 
+        // 플레이어를 그립니다.
         public override void Draw(SpriteBatch spriteBatch)
         {
-            if (!IsDead)
-                base.Draw(spriteBatch);
+            if (!IsDead) // 플레이어가 죽지 않았을 때
+                base.Draw(spriteBatch); // 기본 그리기 메소드를 호출하여 플레이어를 그립니다.
         }
 
+        // 플레이어가 죽었을 때 처리합니다.
         public void Kill()
         {
-            PlayerStatus.RemoveLife();
-            framesUntilRespawn = PlayerStatus.IsGameOver ? 300 : 120;
-
-            Color explosionColor = new Color(0.8f, 0.8f, 0.4f);    // 노란색
-
-            for (int i = 0; i < 1200; i++)
-            {
-                float speed = 18f * (1f - 1 / rand.NextFloat(1f, 10f));
-                Color color = Color.Lerp(Color.White, explosionColor, rand.NextFloat(0, 1));
-                var state = new ParticleState()
-                {
-                    Velocity = rand.NextVector2(speed, speed),
-                    Type = ParticleType.None,
-                    LengthMultiplier = 1
-                };
-
-               // BaseProjectGame.ParticleManager.CreateParticle(Art.LineParticle, Position, color, 190, 1.5f, state);
-            }
+            PlayerStatus.RemoveLife(); // 플레이어의 생명을 하나 제거합니다.
+            framesUntilRespawn = PlayerStatus.IsGameOver ? 300 : 120; // 게임 오버 여부에 따라 부활 시간을 설정합니다.
         }
     }
 }
